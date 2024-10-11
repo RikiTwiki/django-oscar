@@ -16,21 +16,29 @@ from oscar.apps.offer.results import (
 )
 from oscar.core.loading import is_model_registered
 
+class ConditionIncompatible(Exception):
+    pass
+
 __all__ = [
     "BasketDiscount",
     "ShippingDiscount",
     "PostOrderAction",
     "SHIPPING_DISCOUNT",
     "ZERO_DISCOUNT",
+    "ConditionalOffer",
+    "Condition",
 ]
 
 
-if not is_model_registered("offer", "ConditionalOffer"):
 
-    class ConditionalOffer(AbstractConditionalOffer):
-        pass
+class ConditionalOffer(AbstractConditionalOffer):
+    def apply_benefit(self, basket, request=None):
+        if not self.is_condition_satisfied(basket, request=request):
+            return ZERO_DISCOUNT
+        return self.benefit.proxy().apply(basket, self.condition.proxy(), self)
 
-    __all__.append("ConditionalOffer")
+    def is_condition_satisfied(self, basket, request=None):
+        return self.condition.proxy().is_satisfied(self, basket, request=request)
 
 
 if not is_model_registered("offer", "Benefit"):
@@ -41,12 +49,9 @@ if not is_model_registered("offer", "Benefit"):
     __all__.append("Benefit")
 
 
-if not is_model_registered("offer", "Condition"):
-
-    class Condition(AbstractCondition):
-        pass
-
-    __all__.append("Condition")
+class Condition(AbstractCondition):
+    def is_satisfied(self, offer, basket, request=None):
+        return super().is_satisfied(offer=offer, basket=basket)
 
 
 if not is_model_registered("offer", "Range"):
@@ -80,6 +85,8 @@ from oscar.apps.offer.conditions import *
 
 from oscar.apps.offer.benefits import __all__ as benefit_classes
 from oscar.apps.offer.conditions import __all__ as condition_classes
+
+from oscar.apps.offer.models import *
 
 __all__.extend(benefit_classes)
 __all__.extend(condition_classes)

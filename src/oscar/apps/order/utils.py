@@ -11,6 +11,15 @@ from oscar.core.loading import get_class, get_model
 
 from . import exceptions
 
+from django.conf import settings
+from django.contrib.auth import get_user_model
+
+import logging
+
+logger = logging.getLogger(__file__)
+
+User = get_user_model()
+
 Order = get_model("order", "Order")
 Line = get_model("order", "Line")
 OrderDiscount = get_model("order", "OrderDiscount")
@@ -40,6 +49,9 @@ class OrderCreator(object):
     """
     Places the order by writing out the various models
     """
+
+    user = None
+    request = None
 
     def place_order(
         self,
@@ -126,6 +138,21 @@ class OrderCreator(object):
 
         # Send signal for analytics to pick up
         order_placed.send(sender=self, order=order, user=user)
+
+        referral_code = self.request.session.get(settings.REFERRAL_SESSION_KEY, None)
+
+        if referral_code:
+            try:
+                referrer = User.objects.get(referral_code=referral_code)
+            except User.DoesNotExist:
+                referrer = None
+                logger.error("Could not retrieve referrer for referral code '%s'", referrer)
+
+            self.user.is_referral_code_used = True
+            self.user.referrer = referrer
+            self.user.save()
+
+            del self.request.session[settings.REFERRAL_SESSION_KEY]
 
         return order
 

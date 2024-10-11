@@ -12,6 +12,9 @@ __pycache__
 /share
 /pyvenv.cfg
 /pip-selfcheck.json
+venv
+/venv
+./venv
 
 # Vagrant
 .vagrant

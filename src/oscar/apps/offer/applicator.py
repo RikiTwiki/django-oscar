@@ -4,6 +4,9 @@ from itertools import chain
 from oscar.core.loading import get_class, get_model
 
 logger = logging.getLogger("oscar.offers")
+
+ConditionalOffer = get_model('offer', 'ConditionalOffer')
+
 OfferApplications = get_class("offer.results", "OfferApplications")
 
 
@@ -20,17 +23,14 @@ class Applicator(object):
         are dependent on the user (eg session-based offers).
         """
         offers = self.get_offers(basket, user, request)
-        self.apply_offers(basket, offers)
+        self.apply_offers(basket, offers, request)
 
-    def apply_offers(self, basket, offers):
+    def apply_offers(self, basket, offers, request):
         applications = OfferApplications()
         for offer in offers:
             num_applications = 0
-            # Keep applying the offer until either
-            # (a) We reach the max number of applications for the offer.
-            # (b) The benefit can't be applied successfully.
             while num_applications < offer.get_max_applications(basket.owner):
-                result = offer.apply_benefit(basket)
+                result = offer.apply_benefit(basket, request=request)
                 num_applications += 1
                 if not result.is_successful:
                     break
@@ -38,8 +38,6 @@ class Applicator(object):
                 if result.is_final:
                     break
 
-        # Store this list of discounts with the basket so it can be
-        # rendered in templates
         basket.offer_applications = applications
 
     def get_offers(self, basket, user=None, request=None):
@@ -62,6 +60,10 @@ class Applicator(object):
                 reverse=True,
             )
         )
+    
+    def _get_offers_by_type(self, offer_type):
+        qs = ConditionalOffer.active.filter(offer_type=offer_type)
+        return qs.select_related('condition', 'benefit')
 
     def get_site_offers(self):
         """
@@ -99,7 +101,7 @@ class Applicator(object):
 
         Eg: student users might get 25% off
         """
-        return []
+        return self._get_offers_by_type(offer_type=ConditionalOffer.USER)
 
     def get_session_offers(self, request):
         """
@@ -107,4 +109,4 @@ class Applicator(object):
 
         Eg: visitors coming from an affiliate site get a 10% discount
         """
-        return []
+        return self._get_offers_by_type(offer_type=ConditionalOffer.SESSION)

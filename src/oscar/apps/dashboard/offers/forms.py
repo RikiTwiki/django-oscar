@@ -11,20 +11,27 @@ Condition = get_model("offer", "Condition")
 Benefit = get_model("offer", "Benefit")
 
 
-def get_offer_type_choices():
-    return (("", "---------"),) + tuple(
-        choice
-        for choice in ConditionalOffer.TYPE_CHOICES
-        if choice[0]
-        in [
-            getattr(ConditionalOffer, const_name)
-            for const_name in settings.OSCAR_OFFERS_IMPLEMENTED_TYPES
-        ]
-    )
+# def get_offer_type_choices():
+#     return (("", "---------"),) + tuple(
+#         choice
+#         for choice in ConditionalOffer.TYPE_CHOICES
+#         if choice[0]
+#         in [
+#             getattr(ConditionalOffer, const_name)
+#             for const_name in settings.OSCAR_OFFERS_IMPLEMENTED_TYPES
+#         ]
+#     )
+
+OFFER_TYPE_CHOICES = (
+    (ConditionalOffer.SITE, _("Site offer - available to all users")),
+    (ConditionalOffer.USER, _("User offer - available to certain types of user")),
+    (ConditionalOffer.SESSION, _("Session offer - temporary offer, available for "
+                                 "a user for the duration of their session")),
+)
 
 
 class MetaDataForm(forms.ModelForm):
-    offer_type = forms.ChoiceField(label=_("Type"), choices=get_offer_type_choices)
+    offer_type = forms.ChoiceField(label=_("Type"), choices=OFFER_TYPE_CHOICES)
 
     class Meta:
         model = ConditionalOffer
@@ -246,7 +253,7 @@ class OfferSearchForm(forms.Form):
         required=False, label=_("Is active?"), widget=widgets.NullBooleanSelect
     )
     offer_type = forms.ChoiceField(
-        required=False, label=_("Offer type"), choices=get_offer_type_choices
+        required=False, label=_("Offer type"), choices=OFFER_TYPE_CHOICES
     )
     has_vouchers = forms.NullBooleanField(
         required=False, label=_("Has vouchers?"), widget=widgets.NullBooleanSelect

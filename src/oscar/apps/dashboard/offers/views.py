@@ -162,6 +162,11 @@ class OfferConditionView(OfferWizardStepView):
 
     def get_instance(self):
         return self.offer.condition
+    
+    def get_form_kwargs(self, *args, **kwargs):
+        form_kwargs = super().get_form_kwargs(*args, **kwargs)
+        form_kwargs["session_offer"] = self._fetch_session_offer()
+        return form_kwargs
 
 
 class OfferRestrictionsView(OfferWizardStepView):

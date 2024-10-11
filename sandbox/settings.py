@@ -10,7 +10,7 @@ location = lambda x: os.path.join(
 
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1', '192.168.3.136'])
 
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -39,13 +39,13 @@ CACHES = {
 # On Unix systems, a value of None will cause Django to use the same
 # timezone as the operating system.
 USE_TZ = True
-TIME_ZONE = 'Europe/London'
+TIME_ZONE = 'Asia/Bishkek'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-gb'
+LANGUAGE_CODE = 'ru'
 
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
