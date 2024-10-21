@@ -51,7 +51,7 @@ if not is_model_registered("offer", "Benefit"):
 
 class Condition(AbstractCondition):
     def is_satisfied(self, offer, basket, request=None):
-        return super().is_satisfied(offer=offer, basket=basket)
+        return super().is_satisfied(offer=offer, basket=basket, request=request)
 
 
 if not is_model_registered("offer", "Range"):

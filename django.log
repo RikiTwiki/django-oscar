@@ -1,0 +1,87 @@
+nohup: ignoring input
+[2024-10-15 14:21:21,746] Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+<django.template.backends.django.DjangoTemplates object at 0x7342dde6fb80>: (templates.W003) 'thumbnail' is used for multiple template tag modules: 'easy_thumbnails.templatetags.thumbnail', 'sorl.thumbnail.templatetags.thumbnail'
+
+System check identified 1 issue (0 silenced).
+[2024-10-15 14:21:31,606] "GET / HTTP/1.1" 302 0
+[2024-10-15 14:21:31,657] "GET /ru/ HTTP/1.1" 302 0
+/home/rikitwiki/django-oscar/oscar/lib/python3.10/site-packages/haystack/backends/__init__.py:32: Warning: Whoosh does not handle query faceting.
+  return func(obj, query_string, *args, **kwargs)
+[2024-10-15 14:21:33,415] "GET /ru/catalogue/ HTTP/1.1" 200 69715
+[2024-10-15 14:21:33,540] "GET /static/oscar/css/styles.css HTTP/1.1" 200 295411
+[2024-10-15 14:21:33,559] "GET /static/oscar/js/oscar/ui.js HTTP/1.1" 200 12791
+[2024-10-15 14:21:33,561] "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+[2024-10-15 14:21:33,561] "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[2024-10-15 14:21:33,562] "GET /static/oscar/js/bootstrap4/bootstrap.bundle.min.js HTTP/1.1" 200 83376
+[2024-10-15 14:21:33,700] "GET /media/cache/19/12/191241d0ee883507d9690d419ff3dd35.jpg HTTP/1.1" 200 10386
+[2024-10-15 14:21:33,701] "GET /media/cache/e0/66/e066c2a1335b0ef4131c742838cd6f27.jpg HTTP/1.1" 200 6075
+[2024-10-15 14:21:33,729] "GET /media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg HTTP/1.1" 200 3061
+[2024-10-15 14:21:33,761] "GET /media/cache/30/08/30081bda05752ae1c5bb34562427b9ab.jpg HTTP/1.1" 200 9628
+[2024-10-15 14:21:33,767] "GET /media/cache/5a/26/5a26c87077b7df348cc1cb7b22119852.jpg HTTP/1.1" 200 10158
+[2024-10-15 14:21:33,779] "GET /media/cache/25/eb/25ebd8bfde41cbe914d348e493b04ee9.jpg HTTP/1.1" 200 10630
+[2024-10-15 14:21:33,798] "GET /static/oscar/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25464
+[2024-10-15 14:21:33,819] "GET /static/oscar/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[2024-10-15 14:21:33,839] "GET /media/cache/65/15/6515c61c4de491a9b4a1a99fd64f8b00.jpg HTTP/1.1" 200 7506
+[2024-10-15 14:21:33,840] "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+[2024-10-15 14:21:33,867] "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+[2024-10-15 14:21:33,874] "GET /media/cache/00/80/00805ab27f4b5b98782477396a0d412f.jpg HTTP/1.1" 200 11247
+[2024-10-15 14:21:33,877] "GET /media/cache/e6/4d/e64d3af291c4a705edc1f579031fd02d.jpg HTTP/1.1" 200 11093
+[2024-10-15 14:21:33,890] "GET /media/cache/8d/1f/8d1f02288e9f83ac9f24df54a9e81a97.jpg HTTP/1.1" 200 11809
+[2024-10-15 14:21:41,339] "GET /ru/accounts/logout/ HTTP/1.1" 302 0
+[2024-10-15 14:21:42,907] "GET /ru/catalogue/ HTTP/1.1" 200 69031
+[2024-10-15 14:21:44,697] "GET /ru/accounts/login/ HTTP/1.1" 200 30870
+[2024-10-15 14:21:58,330] "POST /ru/accounts/login/ HTTP/1.1" 200 31469
+[2024-10-15 14:22:08,480] "POST /ru/accounts/login/ HTTP/1.1" 302 0
+[2024-10-15 14:22:08,710] "GET /ru/dashboard/ HTTP/1.1" 200 39544
+[2024-10-15 14:22:08,906] "GET /static/oscar/js/select2/select2.min.css HTTP/1.1" 200 14966
+[2024-10-15 14:22:08,908] "GET /static/oscar/css/dashboard.css HTTP/1.1" 200 296899
+[2024-10-15 14:22:08,908] "GET /static/oscar/css/select2-bootstrap.min.css HTTP/1.1" 200 16792
+[2024-10-15 14:22:08,911] "GET /static/oscar/js/bootstrap4-datetimepicker/tempusdominus-bootstrap-4.min.css HTTP/1.1" 200 11967
+[2024-10-15 14:22:08,917] "GET /static/oscar/js/mousewheel/jquery.mousewheel.js HTTP/1.1" 200 8267
+[2024-10-15 14:22:08,919] "GET /static/oscar/js/bootstrap4-datetimepicker/moment-with-locales.min.js HTTP/1.1" 200 369019
+[2024-10-15 14:22:08,921] "GET /static/oscar/js/bootstrap4-datetimepicker/tempusdominus-bootstrap-4.min.js HTTP/1.1" 200 61593
+[2024-10-15 14:22:08,923] "GET /static/oscar/js/inputmask/jquery.inputmask.min.js HTTP/1.1" 200 117412
+[2024-10-15 14:22:08,924] "GET /static/oscar/js/select2/select2.min.js HTTP/1.1" 200 70851
+[2024-10-15 14:22:08,927] "GET /static/oscar/js/jquery-sortable/jquery-sortable-min.js HTTP/1.1" 200 9699
+[2024-10-15 14:22:08,951] "GET /static/oscar/js/oscar/dashboard.js HTTP/1.1" 200 19680
+[2024-10-15 14:22:08,951] "GET /static/oscar/js/oscar/RelatedObjectLookups.js HTTP/1.1" 200 5427
+[2024-10-15 14:22:08,957] "GET /static/oscar/js/tinymce/tinymce.min.js HTTP/1.1" 200 439122
+[2024-10-15 14:22:08,965] "GET /static/oscar/js/tinymce/jquery.tinymce.min.js HTTP/1.1" 200 6871
+[2024-10-15 14:22:09,023] "GET /static/oscar/img/ui/dashboard/logo_oscar.png HTTP/1.1" 200 5469
+[2024-10-15 14:22:09,023] "GET /static/oscar/img/ui/dashboard/bg_subtle_dots.png HTTP/1.1" 200 955
+[2024-10-15 14:22:09,189] "GET /static/oscar/img/ui/dashboard/bg_subtle_dots.png HTTP/1.1" 200 955
+[2024-10-15 14:22:09,189] "GET /static/oscar/img/ui/dashboard/logo_oscar.png HTTP/1.1" 200 5469
+[2024-10-15 14:22:20,001] "GET /ru/dashboard/vouchers/ HTTP/1.1" 200 39270
+[2024-10-15 14:22:31,569] "GET /ru/dashboard/vouchers/create/ HTTP/1.1" 200 37360
+[2024-10-15 14:22:31,707] "GET /static/oscar/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25464
+[2024-10-15 14:33:43,587] "GET / HTTP/1.1" 302 0
+[2024-10-15 14:33:43,628] "GET /ru/ HTTP/1.1" 302 0
+[2024-10-15 14:33:45,279] "GET /ru/catalogue/ HTTP/1.1" 200 69715
+[2024-10-15 14:33:45,965] "GET /media/cache/25/eb/25ebd8bfde41cbe914d348e493b04ee9.jpg HTTP/1.1" 200 10630
+[2024-10-15 14:33:46,022] "GET /media/cache/30/08/30081bda05752ae1c5bb34562427b9ab.jpg HTTP/1.1" 200 9628
+[2024-10-15 14:33:46,037] "GET /media/cache/e6/4d/e64d3af291c4a705edc1f579031fd02d.jpg HTTP/1.1" 200 11093
+[2024-10-15 14:33:46,052] "GET /media/cache/e0/66/e066c2a1335b0ef4131c742838cd6f27.jpg HTTP/1.1" 200 6075
+[2024-10-15 14:33:46,072] "GET /media/cache/5a/26/5a26c87077b7df348cc1cb7b22119852.jpg HTTP/1.1" 200 10158
+[2024-10-15 14:33:46,083] "GET /media/cache/19/12/191241d0ee883507d9690d419ff3dd35.jpg HTTP/1.1" 200 10386
+[2024-10-15 14:33:46,121] "GET /media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg HTTP/1.1" 200 3061
+[2024-10-15 14:33:46,162] "GET /media/cache/00/80/00805ab27f4b5b98782477396a0d412f.jpg HTTP/1.1" 200 11247
+[2024-10-15 14:33:46,163] "GET /media/cache/8d/1f/8d1f02288e9f83ac9f24df54a9e81a97.jpg HTTP/1.1" 200 11809
+[2024-10-15 14:33:46,190] "GET /media/cache/65/15/6515c61c4de491a9b4a1a99fd64f8b00.jpg HTTP/1.1" 200 7506
+[2024-10-15 14:48:22,091] "GET / HTTP/1.1" 302 0
+[2024-10-15 14:48:22,511] "GET /ru/ HTTP/1.1" 302 0
+[2024-10-15 14:48:24,176] "GET /ru/catalogue/ HTTP/1.1" 200 69715
+[2024-10-15 14:48:24,969] "GET /static/oscar/css/styles.css HTTP/1.1" 304 0
+[2024-10-15 14:52:04,462] "GET /ru/catalogue/ HTTP/1.1" 200 69715
+[2024-10-15 14:52:04,680] "GET /media/cache/30/08/30081bda05752ae1c5bb34562427b9ab.jpg HTTP/1.1" 200 9628
+[2024-10-15 14:52:04,681] "GET /media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg HTTP/1.1" 200 3061
+[2024-10-15 14:52:04,741] "GET /media/cache/65/15/6515c61c4de491a9b4a1a99fd64f8b00.jpg HTTP/1.1" 200 7506
+[2024-10-15 14:52:04,753] "GET /media/cache/25/eb/25ebd8bfde41cbe914d348e493b04ee9.jpg HTTP/1.1" 200 10630
+[2024-10-15 14:52:04,754] "GET /media/cache/19/12/191241d0ee883507d9690d419ff3dd35.jpg HTTP/1.1" 200 10386
+[2024-10-15 14:52:04,764] "GET /media/cache/e0/66/e066c2a1335b0ef4131c742838cd6f27.jpg HTTP/1.1" 200 6075
+[2024-10-15 14:52:04,797] "GET /media/cache/e6/4d/e64d3af291c4a705edc1f579031fd02d.jpg HTTP/1.1" 200 11093
+[2024-10-15 14:52:04,811] "GET /media/cache/5a/26/5a26c87077b7df348cc1cb7b22119852.jpg HTTP/1.1" 200 10158
+[2024-10-15 14:52:04,823] "GET /media/cache/00/80/00805ab27f4b5b98782477396a0d412f.jpg HTTP/1.1" 200 11247
+[2024-10-15 14:52:04,849] "GET /media/cache/8d/1f/8d1f02288e9f83ac9f24df54a9e81a97.jpg HTTP/1.1" 200 11809

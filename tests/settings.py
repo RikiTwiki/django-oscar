@@ -6,7 +6,7 @@ from oscar.defaults import *  # noqa
 # Path helper
 location = lambda x: os.path.join(os.path.dirname(os.path.realpath(__file__)), x)
 
-ALLOWED_HOSTS = ["test", ".oscarcommerce.com"]
+ALLOWED_HOSTS = ["test", ".oscarcommerce.com", "192.168.3.136"]
 
 DATABASES = {
     "default": {

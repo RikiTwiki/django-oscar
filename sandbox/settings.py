@@ -10,7 +10,7 @@ location = lambda x: os.path.join(
 
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1', '192.168.3.136'])
+ALLOWED_HOSTS = ['192.168.122.1', 'localhost', '127.0.0.1']
 
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -370,7 +370,7 @@ HAYSTACK_CONNECTIONS = {
 # Debug Toolbar
 # =============
 
-INTERNAL_IPS = ['127.0.0.1', '::1']
+INTERNAL_IPS = ['127.0.0.1', '::1', '192.168.3.136']
 
 # ==============
 # Oscar settings

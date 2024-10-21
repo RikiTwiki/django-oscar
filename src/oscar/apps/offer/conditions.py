@@ -122,7 +122,7 @@ class CountCondition(Condition):
         verbose_name = _("Count condition")
         verbose_name_plural = _("Count conditions")
 
-    def is_satisfied(self, offer, basket):
+    def is_satisfied(self, offer, basket, request=None):
         """
         Determines whether a given basket meets this condition
         """
@@ -214,7 +214,7 @@ class CoverageCondition(Condition):
         verbose_name = _("Coverage Condition")
         verbose_name_plural = _("Coverage Conditions")
 
-    def is_satisfied(self, offer, basket):
+    def is_satisfied(self, offer, basket, request=None):
         """
         Determines whether a given basket meets this condition
         """
